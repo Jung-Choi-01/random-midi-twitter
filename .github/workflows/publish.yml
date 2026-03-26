@@ -21,8 +21,9 @@ jobs:
       - run: sudo apt-get install ffmpeg -y
       - run: sudo apt-get install timidity -y
       - run: python .
-      - name: Upload result video
-        uses: actions/upload-artifact@v4
+      - name: Release to main
+        uses: softprops/action-gh-release@v1
         with:
-          name: video-output
-          path: output.mp4
+          files: output.mp4
+          tag_name: main
+        if: github.ref == 'refs/heads/master'
