@@ -10,7 +10,7 @@ on:
   #    - cron: "12 15 * * *"
 
 jobs:
-  release_video:
+  create_and_publish_video:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,7 +32,7 @@ jobs:
           tag_name: ${{ github.run_number }}
         if: github.ref == 'refs/heads/main'
       - run: python release_to_buffer.py \
-              ${{ secrets.BUFFER_API_TOKEN }} \
+              ${{ secrets.BUFFER_API_KEY }} \
               ${{ secrets.BUFFER_CHANNEL_ID}} \
               "2026-04-01T12:00:00Z" \
               ${{ steps.release.outputs.upload_url }} \
