@@ -25,5 +25,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: output.mp4
-          tag_name: main
+          tag_name: ${{ github.run_number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: github.ref == 'refs/heads/main'
