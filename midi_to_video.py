@@ -1,4 +1,3 @@
-import os
 from synthviz import create_video
 
 # possible future todo's
