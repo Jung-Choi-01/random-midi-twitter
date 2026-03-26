@@ -26,4 +26,4 @@ jobs:
         with:
           files: output.mp4
           tag_name: main
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
