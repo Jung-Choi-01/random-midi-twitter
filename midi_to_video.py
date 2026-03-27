@@ -3,10 +3,12 @@ from colorsys import hsv_to_rgb
 import random
 
 def random_rgb():
-    return hsv_to_rgb(
-        random.random(), 
-        random.uniform(0.6, 1.0), 
-        random.uniform(0.6, 0.8))
+    r, g, b = hsv_to_rgb(
+        random.random(),
+        random.uniform(0.6, 1.0),
+        random.uniform(0.6, 0.8),
+    )
+    return [int(r * 255), int(g * 255), int(b * 255)]
 
 def write_to_video(source_midi: str, output_file: str):
     create_video(input_midi=source_midi,
