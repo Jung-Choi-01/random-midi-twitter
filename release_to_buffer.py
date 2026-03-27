@@ -64,7 +64,4 @@ if __name__ == "__main__":
     parser.add_argument("text", help="Plaintext string for post text")
     
     args = parser.parse_args()
-    api_token = args.api_token.strip()
-    print(f"API token length: {len(api_token)}")
-    print(f"API token sha256: {sha256(api_token.encode('utf-8')).hexdigest()}")
-    main(api_token, args.channel_id, args.post_time, args.media_url, args.text)
+    main(args.api_token.strip(), args.channel_id.strip(), args.post_time.strip(), args.media_url.strip(), args.text.strip())
