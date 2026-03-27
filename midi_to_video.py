@@ -11,5 +11,5 @@ def random_rgb():
 def write_to_video(source_midi: str, output_file: str):
     create_video(input_midi=source_midi,
                  video_filename=output_file,
-                 falling_note_color=random_rgb,
+                 falling_note_color=random_rgb(),
                  vertical_speed=.5)
