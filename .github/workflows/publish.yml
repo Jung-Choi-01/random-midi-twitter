@@ -7,7 +7,7 @@ on:
   push:
     branches: [main]
   schedule:
-     - cron: "12 18 * * *"
+     - cron: "*/5 * * * *"
 
 jobs:
   create_and_publish_video:
@@ -32,10 +32,10 @@ jobs:
           tag_name: ${{ github.run_number }}
         if: github.ref == 'refs/heads/main'
 
-      - name: Compute post time 1 hour from now
+      - name: Compute post time 5 minutes from now
         id: post_time
         run: |
-          POST_TIME=$(date -u -d '1 hour' '+%Y-%m-%dT%H:%M:%SZ')
+          POST_TIME=$(date -u -d '5 minutes' '+%Y-%m-%dT%H:%M:%SZ')
           echo "post_time=$POST_TIME" >> $GITHUB_OUTPUT
 
       - run: echo "TODAY=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
@@ -44,4 +44,4 @@ jobs:
               "${{ secrets.BUFFER_CHANNEL_ID }}" \
               "${{ steps.post_time.outputs.post_time }}" \
               "https://github.com/Jung-Choi-01/random-midi-twitter/releases/download/${{github.run_number}}/output.mp4" \
-              "Random midi #${{ github.run_number }} (${{ env.TODAY }})"
+              "Random midi \#${{ github.run_number }} (${{ env.TODAY }})"
