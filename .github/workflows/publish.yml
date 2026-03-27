@@ -37,11 +37,10 @@ jobs:
         run: |
           POST_TIME=$(date -u -d '5 minutes' '+%Y-%m-%dT%H:%M:%SZ')
           echo "post_time=$POST_TIME" >> $GITHUB_OUTPUT
-
       - run: echo "TODAY=$(date '+%Y-%m-%d')" >> $GITHUB_ENV
       - run: python release_to_buffer.py \
               "${{ secrets.BUFFER_API_KEY }}" \
               "${{ secrets.BUFFER_CHANNEL_ID }}" \
               "${{ steps.post_time.outputs.post_time }}" \
               "https://github.com/Jung-Choi-01/random-midi-twitter/releases/download/${{github.run_number}}/output.mp4" \
-              "Random midi \#${{ github.run_number }} (${{ env.TODAY }})"
+              "Random midi ${{ github.run_number }} (${{ env.TODAY }})"
