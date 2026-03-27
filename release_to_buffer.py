@@ -1,5 +1,6 @@
 import argparse
 import requests
+from hashlib import sha256
 
 
 def main(api_token: str, channel_id: str, post_time: str, media_url: str, text: str) -> None:
@@ -63,5 +64,6 @@ if __name__ == "__main__":
     parser.add_argument("text", help="Plaintext string for post text")
     
     args = parser.parse_args()
-    print(f"API token: {args.api_token}")
+    print(f"API token length: {len(args.api_token)}")
+    print(f"API token sha256: {sha256(args.api_token.encode('utf-8')).hexdigest()}")
     main(args.api_token, args.channel_id, args.post_time, args.media_url, args.text)
