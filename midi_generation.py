@@ -1,11 +1,6 @@
 from musicpy import *
 import random
 
-# possible future todo's
-# 1. implement proper note durations for their interval
-# - implement swing
-# - implement multiple octaves
-# - implement different instruments
 
 tonics = ['A', 'Bb', 'B', 'C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'Ab']
 tonalities = ['major', 'minor']
