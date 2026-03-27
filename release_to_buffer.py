@@ -61,6 +61,7 @@ if __name__ == "__main__":
     parser.add_argument("post_time", help="Scheduled post time in ISO 8601 format")
     parser.add_argument("media_url", help="URL of video asset")
     parser.add_argument("text", help="Plaintext string for post text")
-
+    
     args = parser.parse_args()
+    print(f"API token: {args.api_token}")
     main(args.api_token, args.channel_id, args.post_time, args.media_url, args.text)
